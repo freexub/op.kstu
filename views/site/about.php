@@ -8,6 +8,7 @@ $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
+    <h1><?php echo Yii::t('about', 'title') ?></h1>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>

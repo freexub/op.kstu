@@ -6,26 +6,52 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
-    'language'=> 'ru',
+    'bootstrap' => [
+        'log',
+        'languagepicker',
+        [
+            'class' => 'app\components\LanguageSelector'
+        ],
+    ],
+    'language'=> 'ru-RU',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
-        "multiLanguage" => [
-            "class" => \skeeks\yii2\multiLanguage\MultiLangComponent::class,
-            'langs' => ['ru', 'en', 'kz'],
-            'default_lang' => 'ru',         //Language to which no language settings are added.
-            'lang_param_name' => 'lang',
+//        'LanguageSelector' => [
+//            'class' => 'app\components\LanguageSelector',
+//        ],
+        'languagepicker' => [
+            'class' => 'lajax\languagepicker\Component',
+            'languages' => ['en' => 'Eng', 'ru' => 'Рус', 'kk'=> 'Қаз']     // List of available languages (icons only)
         ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    //'sourceLanguage' => 'en-US',
+//                    'fileMap' => [
+//                        'app'       => 'app.php',
+//                        'app/error' => 'error.php',
+//                    ],
+                ],
+            ],
+        ],
+//        "multiLanguage" => [
+//            "class" => \skeeks\yii2\multiLanguage\MultiLangComponent::class,
+//            'langs' => ['ru-RU', 'en-SU', 'kz-KZ'],
+//            'default_lang' => 'en-SU',         //Language to which no language settings are added.
+//            'lang_param_name' => 'lang',
+//        ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'HA3fr9L4W0J1gI3yeCVc4m0fvXwu8QAe',
-            'class' => \skeeks\yii2\multiLanguage\MultiLangRequest::class,
+//            'class' => \skeeks\yii2\multiLanguage\MultiLangRequest::class,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -56,7 +82,7 @@ $config = [
         'db' => $db,
         /**/
         'urlManager' => [
-            "class" => \skeeks\yii2\multiLanguage\MultiLangUrlManager::class,
+//            "class" => \skeeks\yii2\multiLanguage\MultiLangUrlManager::class,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [

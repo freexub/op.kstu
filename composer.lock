@@ -1,11 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "01fae6205a791f8cec9e80a3274cde88",
-    "content-hash": "aa1c8b0590d68653d2d9037b501b3a11",
+    "content-hash": "74c44daeccb2a5bae60590439b8a12d1",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -18,8 +17,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/twbs/bootstrap/zipball/68b0d231a13201eb14acd3dc84e51543d16e5f7e",
-                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e",
-                "shasum": null
+                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "require": {
                 "bower-asset/jquery": ">=1.9.1,<4.0"
@@ -40,8 +38,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/5e670ad62f50c738388d4dcec78d2888505ad77b",
-                "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b",
-                "shasum": null
+                "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "require": {
                 "bower-asset/jquery": ">=1.7"
@@ -62,8 +59,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/4c0e4becb8263bb5b3e6dadc448d8e7305ef8215",
-                "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215",
-                "shasum": null
+                "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "type": "bower-asset",
             "license": [
@@ -81,8 +77,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/bestiejs/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
-                "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3",
-                "shasum": null
+                "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "type": "bower-asset"
         },
@@ -97,8 +92,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/aef7b953107264f00234902a3880eb50dafc48be",
-                "reference": "aef7b953107264f00234902a3880eb50dafc48be",
-                "shasum": null
+                "reference": "aef7b953107264f00234902a3880eb50dafc48be"
             },
             "require": {
                 "bower-asset/jquery": ">=1.8"
@@ -166,7 +160,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2018-03-26 11:24:36"
+            "time": "2018-03-26T11:24:36+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -226,7 +220,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-08 11:03:04"
+            "time": "2019-06-08T11:03:04+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -284,7 +278,13 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-12-29 14:50:06"
+            "funding": [
+                {
+                    "url": "https://github.com/egulias",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-12-29T14:50:06+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -334,7 +334,55 @@
             "keywords": [
                 "html"
             ],
-            "time": "2020-06-29 00:56:53"
+            "time": "2020-06-29T00:56:53+00:00"
+        },
+        {
+            "name": "lajax/yii2-language-picker",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lajax/yii2-language-picker.git",
+                "reference": "350948b2ce866a6bca30b701922e6b97efad8f1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lajax/yii2-language-picker/zipball/350948b2ce866a6bca30b701922e6b97efad8f1f",
+                "reference": "350948b2ce866a6bca30b701922e6b97efad8f1f",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "lajax\\languagepicker\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Lajos Molnar",
+                    "email": "lajax.m@gmail.com"
+                }
+            ],
+            "description": "Yii2 Language Picker Widget",
+            "keywords": [
+                "extension",
+                "languagepicker",
+                "multilanguage",
+                "sample",
+                "translate",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-03-25T10:14:10+00:00"
         },
         {
             "name": "mdmsoft/yii2-admin",
@@ -392,7 +440,7 @@
                 "rbac",
                 "yii"
             ],
-            "time": "2020-12-31 06:48:57"
+            "time": "2020-12-31T06:48:57+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -437,48 +485,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2020-10-15 08:29:30"
-        },
-        {
-            "name": "skeeks/yii2-multi-language",
-            "version": "1.0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/skeeks-semenov/yii2-multi-language.git",
-                "reference": "1cde9f491191e82562c09434e152045c80910c50"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/skeeks-semenov/yii2-multi-language/zipball/1cde9f491191e82562c09434e152045c80910c50",
-                "reference": "1cde9f491191e82562c09434e152045c80910c50",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "^2.0.17 || dev-master"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "skeeks\\yii2\\multiLanguage\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Semenov Alexander",
-                    "email": "semenov@skeeks.com"
-                }
-            ],
-            "description": "Component for multilingual site",
-            "homepage": "https://cms.skeeks.com",
-            "keywords": [
-                "links",
-                "text"
-            ],
-            "time": "2019-08-15 17:53:32"
+            "time": "2020-10-15T08:29:30+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -539,7 +546,17 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2021-01-12 09:35:59"
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/swiftmailer/swiftmailer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-01-12T09:35:59+00:00"
         },
         {
             "name": "symfony/polyfill-iconv",
@@ -602,7 +619,21 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-10-23 09:01:57"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T09:01:57+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
@@ -673,7 +704,21 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-10-21 09:57:48"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-21T09:57:48+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
@@ -740,7 +785,21 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-10-23 09:01:57"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T09:01:57+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -803,7 +862,21 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-10-23 09:01:57"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T09:01:57+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -866,7 +939,21 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-10-23 09:01:57"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T09:01:57+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -925,7 +1012,21 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-10-23 09:01:57"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T09:01:57+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -1025,7 +1126,21 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2020-12-23 15:44:43"
+            "funding": [
+                {
+                    "url": "https://github.com/yiisoft",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/yiisoft/yii2",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-12-23T15:44:43+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1088,7 +1203,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2019-04-23 13:18:43"
+            "time": "2019-04-23T13:18:43+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1143,7 +1258,21 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2020-06-24 00:04:01"
+            "funding": [
+                {
+                    "url": "https://github.com/yiisoft",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/yiisoft/yii2-composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-06-24T00:04:01+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -1193,7 +1322,7 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2018-09-23 22:00:47"
+            "time": "2018-09-23T22:00:47+00:00"
         }
     ],
     "packages-dev": [
@@ -1255,7 +1384,7 @@
                 "gherkin",
                 "parser"
             ],
-            "time": "2021-02-04 12:26:47"
+            "time": "2021-02-04T12:26:47+00:00"
         },
         {
             "name": "codeception/codeception",
@@ -1340,7 +1469,13 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2021-02-23 17:11:42"
+            "funding": [
+                {
+                    "url": "https://opencollective.com/codeception",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2021-02-23T17:11:42+00:00"
         },
         {
             "name": "codeception/lib-asserts",
@@ -1390,7 +1525,7 @@
             "keywords": [
                 "codeception"
             ],
-            "time": "2020-10-21 16:26:20"
+            "time": "2020-10-21T16:26:20+00:00"
         },
         {
             "name": "codeception/lib-innerbrowser",
@@ -1446,7 +1581,7 @@
             "keywords": [
                 "codeception"
             ],
-            "time": "2021-01-29 18:17:25"
+            "time": "2021-01-29T18:17:25+00:00"
         },
         {
             "name": "codeception/module-asserts",
@@ -1499,7 +1634,7 @@
                 "asserts",
                 "codeception"
             ],
-            "time": "2020-10-21 16:48:15"
+            "time": "2020-10-21T16:48:15+00:00"
         },
         {
             "name": "codeception/module-filesystem",
@@ -1547,7 +1682,7 @@
                 "codeception",
                 "filesystem"
             ],
-            "time": "2020-10-24 14:46:40"
+            "time": "2020-10-24T14:46:40+00:00"
         },
         {
             "name": "codeception/module-yii2",
@@ -1595,7 +1730,7 @@
                 "codeception",
                 "yii2"
             ],
-            "time": "2020-12-21 15:21:56"
+            "time": "2020-12-21T15:21:56+00:00"
         },
         {
             "name": "codeception/phpunit-wrapper",
@@ -1641,7 +1776,7 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "time": "2020-12-28 14:00:48"
+            "time": "2020-12-28T14:00:48+00:00"
         },
         {
             "name": "codeception/specify",
@@ -1681,7 +1816,7 @@
                 }
             ],
             "description": "BDD code blocks for PHPUnit and Codeception",
-            "time": "2016-10-21 09:42:00"
+            "time": "2016-10-21T09:42:00+00:00"
         },
         {
             "name": "codeception/stub",
@@ -1712,7 +1847,7 @@
                 "MIT"
             ],
             "description": "Flexible Stub wrapper for PHPUnit's Mock Builder",
-            "time": "2019-08-10 16:20:53"
+            "time": "2019-08-10T16:20:53+00:00"
         },
         {
             "name": "codeception/verify",
@@ -1753,7 +1888,7 @@
                 }
             ],
             "description": "BDD assertion library for PHPUnit",
-            "time": "2019-07-30 18:21:46"
+            "time": "2019-07-30T18:21:46+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -1807,7 +1942,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -1860,7 +1995,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2020-12-11 14:32:13"
+            "time": "2020-12-11T14:32:13+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1931,7 +2066,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2020-09-30 07:37:11"
+            "time": "2020-09-30T07:37:11+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1976,7 +2111,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-10-19 19:58:43"
+            "time": "2017-10-19T19:58:43+00:00"
         },
         {
             "name": "opis/closure",
@@ -2037,7 +2172,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2020-11-07 02:01:34"
+            "time": "2020-11-07T02:01:34+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -2092,7 +2227,7 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2017-03-05 18:14:27"
+            "time": "2017-03-05T18:14:27+00:00"
         },
         {
             "name": "phar-io/version",
@@ -2139,7 +2274,7 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
-            "time": "2017-03-05 17:38:23"
+            "time": "2017-03-05T17:38:23+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2193,7 +2328,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-09-11 18:02:19"
+            "time": "2017-09-11T18:02:19+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -2245,7 +2380,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2019-12-28 18:55:12"
+            "time": "2019-12-28T18:55:12+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -2290,7 +2425,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-12-30 13:23:38"
+            "time": "2017-12-30T13:23:38+00:00"
         },
         {
             "name": "phpspec/php-diff",
@@ -2328,7 +2463,7 @@
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
-            "time": "2020-09-18 13:47:07"
+            "time": "2020-09-18T13:47:07+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -2391,7 +2526,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2020-03-05 15:02:03"
+            "time": "2020-03-05T15:02:03+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2454,7 +2589,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-04-06 15:36:58"
+            "time": "2018-04-06T15:36:58+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2501,7 +2636,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2017-11-27 13:52:08"
+            "time": "2017-11-27T13:52:08+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -2542,7 +2677,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21 13:50:34"
+            "time": "2015-06-21T13:50:34+00:00"
         },
         {
             "name": "phpunit/php-timer",
@@ -2591,7 +2726,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-02-26 11:10:40"
+            "time": "2017-02-26T11:10:40+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -2641,7 +2776,7 @@
                 "tokenizer"
             ],
             "abandoned": true,
-            "time": "2017-11-27 05:48:46"
+            "time": "2017-11-27T05:48:46+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -2725,7 +2860,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-02-01 05:22:47"
+            "time": "2019-02-01T05:22:47+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2785,7 +2920,7 @@
                 "xunit"
             ],
             "abandoned": true,
-            "time": "2018-08-09 05:50:03"
+            "time": "2018-08-09T05:50:03+00:00"
         },
         {
             "name": "psr/http-message",
@@ -2835,7 +2970,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/log",
@@ -2882,7 +3017,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2020-03-23 09:12:05"
+            "time": "2020-03-23T09:12:05+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -2922,7 +3057,7 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
-            "time": "2019-03-08 08:55:37"
+            "time": "2019-03-08T08:55:37+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -2967,7 +3102,13 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2020-11-30 08:15:22"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T08:15:22+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -3031,7 +3172,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-02-01 13:46:46"
+            "time": "2018-02-01T13:46:46+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -3083,7 +3224,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-08-03 08:09:46"
+            "time": "2017-08-03T08:09:46+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -3133,7 +3274,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-07-01 08:51:00"
+            "time": "2017-07-01T08:51:00+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -3200,7 +3341,13 @@
                 "export",
                 "exporter"
             ],
-            "time": "2020-11-30 07:47:53"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T07:47:53+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -3251,7 +3398,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2017-04-27 15:39:26"
+            "time": "2017-04-27T15:39:26+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -3298,7 +3445,13 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2020-11-30 07:40:27"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T07:40:27+00:00"
         },
         {
             "name": "sebastian/object-reflector",
@@ -3343,7 +3496,13 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
-            "time": "2020-11-30 07:37:18"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T07:37:18+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -3396,7 +3555,13 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2020-11-30 07:34:24"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T07:34:24+00:00"
         },
         {
             "name": "sebastian/resource-operations",
@@ -3438,7 +3603,7 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2015-07-28 20:34:47"
+            "time": "2015-07-28T20:34:47+00:00"
         },
         {
             "name": "sebastian/version",
@@ -3481,7 +3646,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2016-10-03 07:35:21"
+            "time": "2016-10-03T07:35:21+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -3533,7 +3698,21 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2020-10-24 10:57:07"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/console",
@@ -3600,7 +3779,21 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2020-10-24 10:57:07"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -3648,7 +3841,21 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2020-10-24 10:57:07"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/debug",
@@ -3699,7 +3906,21 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2020-10-24 10:57:07"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -3751,7 +3972,21 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2020-10-24 10:57:07"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -3810,7 +4045,21 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2020-10-24 10:57:07"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/finder",
@@ -3854,7 +4103,21 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-11-16 17:02:08"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-11-16T17:02:08+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -3916,7 +4179,21 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-10-23 09:01:57"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T09:01:57+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -3970,7 +4247,21 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2020-10-24 10:57:07"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -4010,7 +4301,7 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "time": "2019-06-13 22:48:21"
+            "time": "2019-06-13T22:48:21+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -4059,7 +4350,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2020-07-08 17:02:28"
+            "time": "2020-07-08T17:02:28+00:00"
         },
         {
             "name": "yiisoft/yii2-debug",
@@ -4128,7 +4419,21 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2020-12-23 16:36:12"
+            "funding": [
+                {
+                    "url": "https://github.com/yiisoft",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/yiisoft/yii2-debug",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-12-23T16:36:12+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -4189,7 +4494,21 @@
                 "faker",
                 "yii2"
             ],
-            "time": "2020-11-10 12:27:35"
+            "funding": [
+                {
+                    "url": "https://github.com/yiisoft",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/yiisoft/yii2-faker",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-11-10T12:27:35+00:00"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -4240,7 +4559,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2020-01-17 13:33:30"
+            "time": "2020-01-17T13:33:30+00:00"
         }
     ],
     "aliases": [],
@@ -4251,5 +4570,6 @@
     "platform": {
         "php": ">=5.6.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

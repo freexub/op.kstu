@@ -38,9 +38,22 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+//            ['label' => 'Home', 'url' => ['/site/index']],
+//            ['label' => 'About', 'url' => ['/site/about']],
+//            ['label' => 'Contact', 'url' => ['/site/contact']],
+            [
+                'label' => 'Управление',
+                'visible' => Yii::$app->user->can('admin'),
+                #'url' => ['/data/'],
+                'items' => [
+                    ['label' => 'ОП', 'url' => ['rop/index']],
+                    ['label' => 'Университеты', 'url' => ['universitys/index']],
+//                    ['label' => '-', 'options'=>['class'=>'divider']],
+//                    ['label' => 'Подразделения', 'url' => ['levels/index']],
+//                    ['label' => 'Должности', 'url' => ['position/index']],
+                    #['label' => '-', 'options'=>['class'=>'divider']],
+                ]
+            ],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -52,7 +65,14 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            ),
+
+            '<li><div class="navbar-text pull-right">'
+            .\lajax\languagepicker\widgets\LanguagePicker::widget([
+                'skin' => \lajax\languagepicker\widgets\LanguagePicker::SKIN_DROPDOWN,
+                'size' => \lajax\languagepicker\widgets\LanguagePicker::SIZE_LARGE,
+            ])
+            . '</div></li>',
         ],
     ]);
     NavBar::end();

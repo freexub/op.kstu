@@ -60,7 +60,7 @@ class RopController extends Controller
      */
     public function actionView($id)
     {
-        $competencies = Competencies::find()->where(['rop_id'=>$id])->all();
+        $competencies = Competencies::find()->where(['rop_id'=>$id])->orderBy('id DESC')->all();
         foreach ($competencies as $competence){
             $learningResult = LearningResult::find()->where(['competencies_id'=>$competence->id]);
             $dataProviders[$competence->id] = new ActiveDataProvider([
@@ -70,10 +70,48 @@ class RopController extends Controller
         }
 //        var_dump($dataProviders);die();
 
+        $activeTab = false;
+        $contentTab = 'tabs/passport';
+        if (isset($_GET['tab'])){
+            $activeTab = true;
+            $contentTab = 'tabs/competencies';
+        }
+
+        $items = [
+            [
+                'label' => '<b>Паспорт ОП</b>',
+                'url' => 'view?id='.$id,
+            ],
+            [
+                'label' => 'Компетенции ОП',
+                'url' => 'view?id='.$id.'&tab=1',
+                'active' => $activeTab,
+            ],
+//            [
+//                'label' => 'Управление',
+//                'items' => [
+//                    [
+//                        'label' => 'Добавить компетенцию',
+//                        'content' => 'Добавить компетенцию',
+//                    ],
+//                    [
+//                        'label' => 'Редактировать паспорт ОП',
+//                        'content' => 'DropdownB, Anim pariatur cliche...',
+//                    ],
+//                    [
+//                        'label' => 'Удалить ОП',
+//                        'url' => 'http://www.example.com',
+//                    ],
+//                ],
+//            ],
+        ];
+
         return $this->render('view', [
             'model' => $this->findModel($id),
             'dataProviders' => $dataProviders,
             'competencies' => $competencies,
+            'items' => $items,
+            'contentTab' => $contentTab,
         ]);
     }
 
@@ -88,7 +126,8 @@ class RopController extends Controller
         if ($model->load(Yii::$app->request->post())){
             $model->rop_id = $id;
             if ($model->save()){
-                return $this->redirect(['view', 'id' => $id]);
+                return $this->redirect(Yii::$app->request->referrer);
+//                return $this->redirect(['view', 'id' => $id]);
             }
         }
         return $this->renderAjax('forms/add_competencies', [

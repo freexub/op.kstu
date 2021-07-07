@@ -87,23 +87,6 @@ class RopController extends Controller
                 'url' => 'view?id='.$id.'&tab=1',
                 'active' => $activeTab,
             ],
-//            [
-//                'label' => 'Управление',
-//                'items' => [
-//                    [
-//                        'label' => 'Добавить компетенцию',
-//                        'content' => 'Добавить компетенцию',
-//                    ],
-//                    [
-//                        'label' => 'Редактировать паспорт ОП',
-//                        'content' => 'DropdownB, Anim pariatur cliche...',
-//                    ],
-//                    [
-//                        'label' => 'Удалить ОП',
-//                        'url' => 'http://www.example.com',
-//                    ],
-//                ],
-//            ],
         ];
 
         return $this->render('view', [
@@ -111,6 +94,7 @@ class RopController extends Controller
             'dataProviders' => $dataProviders,
             'competencies' => $competencies,
             'items' => $items,
+            'rop_id' => $id,
             'contentTab' => $contentTab,
         ]);
     }
@@ -127,7 +111,6 @@ class RopController extends Controller
             $model->rop_id = $id;
             if ($model->save()){
                 return $this->redirect(Yii::$app->request->referrer);
-//                return $this->redirect(['view', 'id' => $id]);
             }
         }
         return $this->renderAjax('forms/add_competencies', [
@@ -145,7 +128,7 @@ class RopController extends Controller
 //        var_dump($model->status);die();
         $model->status = 1;
         if ($model->save())
-            return $this->redirect(['view', 'id' => $rop_id]);
+            return $this->redirect(Yii::$app->request->referrer);
     }
 
     public function actionLearningResultAdd($id, $rop_id)
@@ -159,7 +142,8 @@ class RopController extends Controller
         if ($model->load(Yii::$app->request->post())){
             $model->competencies_id = $id;
             if ($model->save()){
-                return $this->redirect(['view', 'id' => $rop_id]);
+//                return $this->redirect(['view', 'id' => $rop_id]);
+                return $this->redirect(Yii::$app->request->referrer);
             }
         }
         return $this->renderAjax('forms/add_result', [

@@ -9,7 +9,7 @@ use yii\bootstrap\Tabs;
 /* @var $contentTab yii\web\View */
 /* @var $model app\models\Rop */
 /* @var $competencies app\models\Competencies */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $dataProviders yii\data\ActiveDataProvider */
 
 $this->title = $model->eduProgramName;
 $this->params['breadcrumbs'][] = ['label' => 'Образовательные программы', 'url' => ['index']];
@@ -45,6 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'dataProviders' => $dataProviders,
         'competencies' => $competencies,
+        'rop_id' => $rop_id,
     ]) ?>
 
 </div>

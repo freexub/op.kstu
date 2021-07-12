@@ -17,6 +17,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@adminlte/widgets'   => '@vendor/adminlte/yii2-widgets',
     ],
     'components' => [
 //        'LanguageSelector' => [
@@ -88,6 +89,13 @@ $config = [
             'rules' => [
             ],
         ],
+//        'view' => [
+//            'theme' => [
+//                'pathMap' => [
+//                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+//                ],
+//            ],
+//        ],
 
     ],
     'modules' => [
@@ -96,6 +104,7 @@ $config = [
         ],
         'admin' => [
             'class' => 'app\modules\admin\Module',
+            'layout' => 'main'
         ],
         'rbac' => [
             'class' => 'mdm\admin\Module',
@@ -109,6 +118,10 @@ $config = [
             ],
             'layout' => 'left-menu',
             'mainLayout' => '@app/views/layouts/main.php',
+        ],
+        'expert' => [
+            'class' => 'app\modules\expert\Module',
+            'layout' => 'main'
         ],
     ],
     'as access' => [
@@ -132,6 +145,14 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'generators' => [ // here
+            'crud' => [ // generator name
+                'class' => 'yii\gii\generators\crud\Generator', // generator class
+                'templates' => [ // setting for our templates
+                    'yii2-adminlte3' => '@vendor/hail812/yii2-adminlte3/src/gii/generators/crud/default' // template name => path to template
+                ]
+            ]
+        ]
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];

@@ -70,32 +70,54 @@ use yii\bootstrap\Tabs;
     //        'filterModel' => $searchModel,
             'summary' => false,
             'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
+                ['class' => 'yii\grid\SerialColumn',
+                    'options' => ['width' => '3%']],
                 'name',
                 [
 //                    'label' => 'Удалить',
-                    #'visible' => Yii::$app->user->can('admin'),
                     'format' => 'raw',
                     'options' => ['width' => '65'],
-                    'value' => function($data) use ($rop_id){
-                        $class = '';
-                        if ($data->status == 0){
-                            $class ='btn btn-danger btn-xl glyphicon glyphicon-remove-sign';
-                        }
-                        if ($data->status == 1){
-                            $class ='btn btn-info btn-xl glyphicon glyphicon-ok-circle';
-                        }
-                        return Html::a('<span class="'.$class.'"></span>',
+                    'value' => function($data){
+                        return Html::a('',
                             [
-                                'learning-result-status',
+                                'learning-result-vote',
                                 'id' => $data->id,
-                                'rop_id' => $rop_id
+                                'vote' => 1
+                            ],
+                            [
+                                "class"=> "btn btn-info btn-lg glyphicon glyphicon-thumbs-up",
+                                'data' => [
+                                    'method' => 'post',
+                                    'params' => [
+                                        'competencies_id' => $data->id,
+                                        'result' => 1
+                                    ],
+                                ],
                             ]
-//                            [
-////                                'class'=>'pull-right',
-//                                'data-toggle'=>'modal',
-//                                'data-target'=>'#modal'.($data->id),
-//                            ]
+                        );
+                    }
+                ],
+                [
+//                    'label' => 'Удалить',
+                    'format' => 'raw',
+                    'options' => ['width' => '65'],
+                    'value' => function($data){
+                        return Html::a('',
+                            [
+                                'learning-result-vote',
+                                'id' => $data->id,
+                                'vote' => 0
+                            ],
+                            [
+                                "class"=> "btn btn-warning btn-lg glyphicon glyphicon-thumbs-down",
+                                'data' => [
+                                    'method' => 'post',
+                                    'params' => [
+                                        'competencies_id' => $data->id,
+                                        'result' => 0
+                                    ],
+                                ],
+                            ]
                         );
                     }
                 ],

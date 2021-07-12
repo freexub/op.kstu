@@ -8,10 +8,10 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log',
-        'languagepicker',
-        [
-            'class' => 'app\components\LanguageSelector'
-        ],
+//        'languagepicker',
+//        [
+//            'class' => 'app\components\LanguageSelector'
+//        ],
     ],
     'language'=> 'ru-RU',
     'aliases' => [
@@ -22,23 +22,23 @@ $config = [
 //        'LanguageSelector' => [
 //            'class' => 'app\components\LanguageSelector',
 //        ],
-        'languagepicker' => [
-            'class' => 'lajax\languagepicker\Component',
-            'languages' => ['en' => 'Eng', 'ru' => 'Рус', 'kk'=> 'Қаз']     // List of available languages (icons only)
-        ],
-        'i18n' => [
-            'translations' => [
-                '*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    //'basePath' => '@app/messages',
-                    //'sourceLanguage' => 'en-US',
-//                    'fileMap' => [
-//                        'app'       => 'app.php',
-//                        'app/error' => 'error.php',
-//                    ],
-                ],
-            ],
-        ],
+//        'languagepicker' => [
+//            'class' => 'lajax\languagepicker\Component',
+//            'languages' => ['en' => 'Eng', 'ru' => 'Рус', 'kk'=> 'Қаз']     // List of available languages (icons only)
+//        ],
+//        'i18n' => [
+//            'translations' => [
+//                '*' => [
+//                    'class' => 'yii\i18n\PhpMessageSource',
+//                    //'basePath' => '@app/messages',
+//                    //'sourceLanguage' => 'en-US',
+////                    'fileMap' => [
+////                        'app'       => 'app.php',
+////                        'app/error' => 'error.php',
+////                    ],
+//                ],
+//            ],
+//        ],
 //        "multiLanguage" => [
 //            "class" => \skeeks\yii2\multiLanguage\MultiLangComponent::class,
 //            'langs' => ['ru-RU', 'en-SU', 'kz-KZ'],
@@ -91,6 +91,9 @@ $config = [
 
     ],
     'modules' => [
+        'expert' => [
+            'class' => 'app\modules\expert\Module',
+        ],
         'admin' => [
             'class' => 'app\modules\admin\Module',
         ],

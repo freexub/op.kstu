@@ -125,10 +125,14 @@ class RopController extends Controller
      */
     public function actionLearningResultStatus($id, $rop_id){
         $model = LearningResult::findOne($id);
+
 //        var_dump($model->status);die();
         $model->status = 1;
         if ($model->save())
             return $this->redirect(Yii::$app->request->referrer);
+        else
+            var_dump($model->status);die();
+
     }
 
     public function actionLearningResultAdd($id, $rop_id)

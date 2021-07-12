@@ -48,6 +48,7 @@ AppAsset::register($this);
                 'items' => [
                     ['label' => 'ОП', 'url' => ['rop/index']],
                     ['label' => 'Университеты', 'url' => ['universitys/index']],
+                    ['label' => 'Expert', 'url' => ['expert/index']],
 //                    ['label' => '-', 'options'=>['class'=>'divider']],
 //                    ['label' => 'Подразделения', 'url' => ['levels/index']],
 //                    ['label' => 'Должности', 'url' => ['position/index']],
@@ -68,10 +69,10 @@ AppAsset::register($this);
             ),
 
             '<li><div class="navbar-text pull-right">'
-            .\lajax\languagepicker\widgets\LanguagePicker::widget([
-                'skin' => \lajax\languagepicker\widgets\LanguagePicker::SKIN_DROPDOWN,
-                'size' => \lajax\languagepicker\widgets\LanguagePicker::SIZE_LARGE,
-            ])
+//            .\lajax\languagepicker\widgets\LanguagePicker::widget([
+//                'skin' => \lajax\languagepicker\widgets\LanguagePicker::SKIN_DROPDOWN,
+//                'size' => \lajax\languagepicker\widgets\LanguagePicker::SIZE_LARGE,
+//            ])
             . '</div></li>',
         ],
     ]);

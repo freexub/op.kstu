@@ -50,24 +50,24 @@
 //                    ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank'],
 //                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank'],
                     ['label' => 'MENU', 'header' => true],
-                    ['label' => 'Programs', 'url' => ['programs/index'], /*, 'visible' => Yii::$app->user->isGuest*/],
-                    [
-                        'label' => 'Level2',
-                        'items' => [
-                            ['label' => 'Level2', 'iconStyle' => 'far'],
-                            [
-                                'label' => 'Level2',
-                                'iconStyle' => 'far',
-                                'items' => [
-                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle'],
-                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle'],
-                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle']
-                                ]
-                            ],
-                            ['label' => 'Level2', 'iconStyle' => 'far']
-                        ]
-                    ],
-                    ['label' => 'Level3'],
+                    ['label' => 'Programs', 'active'=>Yii::$app->controller->id === 'programs', 'url' => ['programs/index'], /*, 'visible' => Yii::$app->user->isGuest*/],
+//                    [
+//                        'label' => 'Level2',
+//                        'items' => [
+//                            ['label' => 'Level2', 'iconStyle' => 'far'],
+//                            [
+//                                'label' => 'Level2',
+//                                'iconStyle' => 'far',
+//                                'items' => [
+//                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle'],
+//                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle'],
+//                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle']
+//                                ]
+//                            ],
+//                            ['label' => 'Level2', 'iconStyle' => 'far']
+//                        ]
+//                    ],
+//                    ['label' => 'Level3'],
 //                    ['label' => 'LABELS', 'header' => true],
 //                    ['label' => 'Important', 'iconStyle' => 'far', 'iconClassAdded' => 'text-danger'],
 //                    ['label' => 'Warning', 'iconClass' => 'nav-icon far fa-circle text-warning'],

@@ -121,7 +121,7 @@ $config = [
         ],
         'expert' => [
             'class' => 'app\modules\expert\Module',
-            'layout' => 'main'
+//            'layout' => 'main'
         ],
     ],
     'as access' => [
@@ -145,14 +145,14 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
-        'generators' => [ // here
-            'crud' => [ // generator name
-                'class' => 'yii\gii\generators\crud\Generator', // generator class
-                'templates' => [ // setting for our templates
-                    'yii2-adminlte3' => '@vendor/hail812/yii2-adminlte3/src/gii/generators/crud/default' // template name => path to template
-                ]
-            ]
-        ]
+//        'generators' => [ // here
+//            'crud' => [ // generator name
+//                'class' => 'yii\gii\generators\crud\Generator', // generator class
+//                'templates' => [ // setting for our templates
+//                    'yii2-adminlte3' => '@vendor/hail812/yii2-adminlte3/src/gii/generators/crud/default' // template name => path to template
+//                ]
+//            ]
+//        ]
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];

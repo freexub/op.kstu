@@ -1,6 +1,9 @@
 <?php
 
 namespace app\modules\expert\models;
+
+use app\models\Rop;
+use app\models\RopExperts;
 use Yii;
 
 /**
@@ -30,10 +33,14 @@ use Yii;
  *
  * @property Universitys $university
  */
-class Programs extends \app\models\Rop
+class Programs extends Rop
 {
-    /**
-     * {@inheritdoc}
-     */
+    public function getRopTurn(){
+        $query = RopExperts::findOne([
+            'rop_id' => $this->id,
+            'user_id' => Yii::$app->user->id
+        ]);
+        return $query;
+    }
 
 }

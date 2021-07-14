@@ -70,6 +70,7 @@ use yii\bootstrap\Tabs;
     //        'filterModel' => $searchModel,
             'summary' => false,
             'columns' => [
+<<<<<<< HEAD
                 ['class' => 'yii\grid\SerialColumn',
                     'options' => ['width' => '3%']],
                 'id',
@@ -131,6 +132,34 @@ use yii\bootstrap\Tabs;
                                     ],
                                 ],
                             ]
+=======
+                ['class' => 'yii\grid\SerialColumn'],
+                'name',
+                [
+//                    'label' => 'Удалить',
+                    #'visible' => Yii::$app->user->can('admin'),
+                    'format' => 'raw',
+                    'options' => ['width' => '65'],
+                    'value' => function($data) use ($rop_id){
+                        $class = '';
+                        if ($data->status == 0){
+                            $class ='btn btn-danger btn-xl glyphicon glyphicon-remove-sign';
+                        }
+                        if ($data->status == 1){
+                            $class ='btn btn-info btn-xl glyphicon glyphicon-ok-circle';
+                        }
+                        return Html::a('<span class="'.$class.'"></span>',
+                            [
+                                'learning-result-status',
+                                'id' => $data->id,
+                                'rop_id' => $rop_id
+                            ]
+//                            [
+////                                'class'=>'pull-right',
+//                                'data-toggle'=>'modal',
+//                                'data-target'=>'#modal'.($data->id),
+//                            ]
+>>>>>>> origin/master
                         );
                     }
                 ],

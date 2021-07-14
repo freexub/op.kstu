@@ -2,15 +2,18 @@
 
 namespace app\modules\expert\controllers;
 
-use app\models\Competencies;
-use app\models\LearningResult;
-use app\models\Rop;
-use app\modules\expert\models\CompetenciesVote;
+use app\models\RopExperts;
+use app\modules\expert\models\Programs;
 use Yii;
-use app\models\RopSearch;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
+use app\models\Competencies;
+use app\models\LearningResult;
+use app\models\LearningResultVote;
+use app\models\Rop;
+use app\modules\expert\models\ProgramsSearch;
 
 class ProgramsController extends \yii\web\Controller
 {
@@ -31,7 +34,9 @@ class ProgramsController extends \yii\web\Controller
      */
     public function actionIndex()
     {
-        $searchModel = new RopSearch();
+//        $expertPrograms = RopExperts::find()->select('rop_id')->where(['active'=>0, 'user_id'=>Yii::$app->user->id])->asArray()->all();
+//        var_dump($expertPrograms);die();
+        $searchModel = new ProgramsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -116,6 +121,7 @@ class ProgramsController extends \yii\web\Controller
         $model = new Competencies();
         if ($model->load(Yii::$app->request->post())){
             $model->rop_id = $id;
+            $model->autor = Yii::$app->user->id;
             if ($model->save()){
                 return $this->redirect(Yii::$app->request->referrer);
             }
@@ -128,9 +134,9 @@ class ProgramsController extends \yii\web\Controller
 
     public function actionLearningResultVote($id, $vote){
         $autor = Yii::$app->user->id;
-        $model = CompetenciesVote::findOne([
+        $model = LearningResultVote::findOne([
             'autor'=>$autor,
-            'competencies_id'=>$id
+            'lr_id'=>$id
         ]);
         if (count($model) > 0){
             if ($model->load(Yii::$app->request->post(), '')){
@@ -138,7 +144,7 @@ class ProgramsController extends \yii\web\Controller
                     return $this->redirect(Yii::$app->request->referrer);
             }
         }else{
-            $model = new CompetenciesVote();
+            $model = new LearningResultVote();
             if ($model->load(Yii::$app->request->post(), '')){
                 $model->autor = $autor;
                 if ($model->save())
@@ -157,7 +163,7 @@ class ProgramsController extends \yii\web\Controller
      */
     protected function findModel($id)
     {
-        if (($model = Rop::findOne($id)) !== null) {
+        if (($model = Programs::findOne($id)) !== null) {
             return $model;
         }
 

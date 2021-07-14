@@ -11,6 +11,7 @@ use Yii;
  * @property int $competencies_id
  * @property string $name
  * @property int $status
+ * @property int $autor
  *
  * @property Competencies $competencies
  */
@@ -31,7 +32,7 @@ class LearningResult extends \yii\db\ActiveRecord
     {
         return [
             [['competencies_id', 'name'], 'required'],
-            [['competencies_id', 'status'], 'integer'],
+            [['competencies_id', 'status', 'autor'], 'integer'],
             [['name'], 'string', 'max' => 150],
             [['competencies_id'], 'exist', 'skipOnError' => true, 'targetClass' => Competencies::className(), 'targetAttribute' => ['competencies_id' => 'id']],
         ];
@@ -47,6 +48,7 @@ class LearningResult extends \yii\db\ActiveRecord
             'competencies_id' => Yii::t('app', 'Competencies ID'),
             'name' => Yii::t('app', 'Результат обучения'),
             'status' => Yii::t('app', 'Status'),
+            'autor' => Yii::t('app', 'Autor'),
         ];
     }
 
@@ -58,6 +60,14 @@ class LearningResult extends \yii\db\ActiveRecord
     public function getCompetencies()
     {
         return $this->hasOne(Competencies::className(), ['id' => 'competencies_id']);
+    }
+
+    public function getVote()
+    {
+        $autor = Yii::$app->user->id;
+//        var_dump($autor);die();
+        return LearningResultVote::findOne(['lr_id' => $this->id, 'autor'=>$autor]);
+//        var_dump($query);die();
     }
 
 }

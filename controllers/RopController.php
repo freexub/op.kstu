@@ -6,7 +6,9 @@ use app\models\Competencies;
 use app\models\EduArea;
 use app\models\GroupEduProgram;
 use app\models\LearningResult;
+use app\models\RopExperts;
 use app\models\TrainingDirection;
+use app\models\User;
 use Yii;
 use app\models\Rop;
 use app\models\RopSearch;
@@ -58,9 +60,9 @@ class RopController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
-    {
-        $competencies = Competencies::find()->where(['rop_id'=>$id])->orderBy('id DESC')->all();
+
+    function Competencies($competencies){
+        $dataProviders = [];
         foreach ($competencies as $competence){
             $learningResult = LearningResult::find()->where(['competencies_id'=>$competence->id]);
             $dataProviders[$competence->id] = new ActiveDataProvider([
@@ -68,24 +70,48 @@ class RopController extends Controller
                 'sort' => false
             ]);
         }
-//        var_dump($dataProviders);die();
+        return $dataProviders;
+    }
 
-        $activeTab = false;
-        $contentTab = 'tabs/passport';
+    public function actionView($id)
+    {
+        $competencies = Competencies::find()->where(['rop_id'=>$id])->orderBy('id DESC')->all();
+        $activeTab = 0;
         if (isset($_GET['tab'])){
-            $activeTab = true;
-            $contentTab = 'tabs/competencies';
+            $activeTab = (int)$_GET['tab'];
+        }
+        switch ($activeTab) {
+            case 0:
+                $contentTab = 'tabs/passport';
+                break;
+            case 1:
+                $contentTab = 'tabs/competencies';
+                $dataProviders = $this->Competencies($competencies);
+                break;
+            case 2:
+                $contentTab = 'tabs/experts';
+                $dataProviders = new ActiveDataProvider([
+                    'query' => RopExperts::find()->where(['rop_id'=>$id, 'turn'=>0]),
+                    'sort' => false
+                ]);
+                break;
         }
 
         $items = [
             [
                 'label' => '<b>Паспорт ОП</b>',
                 'url' => 'view?id='.$id,
+                'active' => $activeTab == 0,
             ],
             [
                 'label' => 'Компетенции ОП',
                 'url' => 'view?id='.$id.'&tab=1',
-                'active' => $activeTab,
+                'active' => $activeTab == 1,
+            ],
+            [
+                'label' => 'Эксперты',
+                'url' => 'view?id='.$id.'&tab=2',
+                'active' => $activeTab == 2,
             ],
         ];
 
@@ -97,6 +123,66 @@ class RopController extends Controller
             'rop_id' => $id,
             'contentTab' => $contentTab,
         ]);
+    }
+
+    public function actionExpertAdd($rop_id = 0)
+    {
+        $model = new RopExperts();
+        $users = User::find()
+            ->where("id NOT IN (Select user_id From rop_experts Where rop_id = ".$rop_id.") ")
+            ->all();
+
+        if ($model->load(Yii::$app->request->post())){
+            $model->rop_id = $rop_id;
+            if ($model->save()){
+                return $this->redirect(Yii::$app->request->referrer);
+            }else{
+                var_dump(Yii::$app->request->post());
+                die();
+            }
+        }
+        return $this->renderAjax('forms/add_expert', [
+            'model' => $model,
+            'users' => $users,
+            'rop_id' => $rop_id,
+        ]);
+
+    }
+
+    public function actionExpertsAdd($rop_id = 0)
+    {
+
+//        var_dump(Yii::$app->request->post());
+//        die();
+
+        $model = new RopExperts();
+        $model2 = new RopExperts();
+        $users = User::find()
+            ->where("id NOT IN (Select user_id From rop_experts Where rop_id = ".$rop_id.") ")
+            ->all();
+
+        if (isset($_POST['RopExperts'])){
+            $data = $_POST['RopExperts'];
+            $model->rop_id = $rop_id;
+            $model->user_id = $data['user1'];
+            if ($model->save()){
+                $model2->rop_id = $rop_id;
+                $model2->user_id = $data['user2'];
+                $model2->active = 1;
+                $model2->turn = $model->id;
+                if ($model2->save())
+                    return $this->redirect(Yii::$app->request->referrer);
+            }else{
+                return $this->redirect(Yii::$app->request->referrer);
+            }
+        }
+        return $this->renderAjax('forms/add_experts', [
+            'model' => $model,
+            'model2' => $model2,
+            'users' => $users,
+            'rop_id' => $rop_id,
+        ]);
+
     }
 
     /**
@@ -261,6 +347,14 @@ class RopController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionDeleteExperts($id)
+    {
+        $ropExpert = RopExperts::deleteAll("id = ".$id." or turn =".$id);
+//        $ropExpert->
+
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     /**

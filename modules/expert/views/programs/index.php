@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\RopSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Образовательные программы';
+$this->title = 'Образовательные программы на оценку';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rop-index">
@@ -24,31 +24,28 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //            'id',
             'eduProgramName',
-            'university.name',
             [
                 'value' => 'eduAreas.CodeName',
-//                'label'=>'eduAreas.eduProgramName',
             ],
-
-//            'trainingDirections',
-            //'groupEduProgram',
-            //'eduProgramName',
-            //'eduGoalName',
-            //'eduType',
-            //'levelNrk',
-            //'levelOrk',
-            //'distinctType',
-            //'universityPartner',
-            //'creditsCount',
-            //'academicDegree',
-            //'trainingPeriod',
-            //'licenseNumber',
-            //'dateCreate',
-            //'dateUpdate',
-            //'statusId',
-            //'active',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+//                'label' => 'Открыть',
+                'format' => 'raw',
+                'options' => ['width' => '65'],
+                'value' => function($data){
+                    $turn = $data->ropTurn;
+                    if (($turn->turn > 0) && ($turn->active == 1))
+                        return '<span class="btn btn-warning btn-lg disabled glyphicon glyphicon-time" title="В очереди"></span>';
+                    else{
+                        return Html::a('<span class="btn btn-lg btn-success glyphicon glyphicon-eye-open"></span>',
+                                [
+                                    'view',
+                                    'id' => $data->id,
+                                ]
+                            );
+                    }
+                }
+            ],
+//            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

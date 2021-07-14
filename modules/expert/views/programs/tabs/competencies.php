@@ -72,7 +72,20 @@ use yii\bootstrap\Tabs;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn',
                     'options' => ['width' => '3%']],
+                'id',
                 'name',
+//                'Vote.result',
+                [
+//                    'label' => 'Удалить',
+                    'format' => 'raw',
+                    'options' => ['width' => '65'],
+                    'value' => function($data){
+                        if (!isset($data->vote->result))
+                            return 'Нет голоса';
+                        else
+                            return $data->vote->result;
+                    }
+                ],
                 [
 //                    'label' => 'Удалить',
                     'format' => 'raw',
@@ -89,7 +102,7 @@ use yii\bootstrap\Tabs;
                                 'data' => [
                                     'method' => 'post',
                                     'params' => [
-                                        'competencies_id' => $data->id,
+                                        'lr_id' => $data->id,
                                         'result' => 1
                                     ],
                                 ],
@@ -113,7 +126,7 @@ use yii\bootstrap\Tabs;
                                 'data' => [
                                     'method' => 'post',
                                     'params' => [
-                                        'competencies_id' => $data->id,
+                                        'lr_id' => $data->id,
                                         'result' => 0
                                     ],
                                 ],

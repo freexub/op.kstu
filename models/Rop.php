@@ -14,14 +14,14 @@ use Yii;
  * @property int $trainingDirections Направление подготовки
  * @property int $groupEduProgram Группа образовательных программ
  * @property string $eduProgramName Образовательная программа
- * @property int $eduGoalName Цель ОП
+ * @property string $eduGoalName Цель ОП
  * @property int $eduType Вид ОП
  * @property int $levelNrk Уровень по НРК
  * @property int $levelOrk Уровень по ОРК
  * @property int $distinctType Отличительные особенности ОП
  * @property int $universityPartner ВУЗ-партнер
  * @property int $creditsCount Объем кредитов
- * @property int $academicDegree Присуждаемая академическая степень
+ * @property string $academicDegree Присуждаемая академическая степень
  * @property int $trainingPeriod Срок обучения
  * @property int $licenseNumber Номер лицензии на направление подготовки
  * @property int $dateCreate Дата регистрации в Реестре
@@ -47,8 +47,9 @@ class Rop extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['universityId', 'eduArea', 'trainingDirections', 'groupEduProgram', 'eduProgramName', 'eduGoalName', 'levelNrk', 'levelOrk', 'creditsCount', 'academicDegree', 'trainingPeriod'], 'required'],
-            [['universityId', 'eduArea', 'trainingDirections', 'groupEduProgram','eduGoalName', 'eduType', 'levelNrk', 'levelOrk', 'distinctType', 'universityPartner', 'creditsCount', 'academicDegree', 'trainingPeriod', 'licenseNumber', 'dateCreate', 'dateUpdate', 'statusId', 'active'], 'integer'],
+            [['universityId', 'eduArea', 'trainingDirections', 'groupEduProgram', 'eduProgramName', 'eduGoalName', 'eduGoalName', 'levelNrk','academicDegree',  'levelOrk', 'creditsCount', 'trainingPeriod'], 'required'],
+            [['universityId', 'eduArea', 'trainingDirections', 'groupEduProgram', 'eduType', 'levelNrk', 'levelOrk', 'distinctType', 'universityPartner', 'creditsCount', 'trainingPeriod', 'licenseNumber', 'dateCreate', 'dateUpdate', 'statusId', 'active'], 'integer'],
+            [['eduGoalName', 'academicDegree'], 'string', 'max' => 500],
             [['regNumber'], 'string', 'max' => 10],
             [['eduProgramName'], 'string', 'max' => 200],
             [['universityId'], 'exist', 'skipOnError' => true, 'targetClass' => Universitys::className(), 'targetAttribute' => ['universityId' => 'id']],

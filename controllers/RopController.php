@@ -18,6 +18,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
+use yii\helpers\ArrayHelper;
 
 /**
  * RopController implements the CRUD actions for Rop model.
@@ -244,6 +245,23 @@ class RopController extends Controller
         ]);
 
     }
+
+    //--------
+
+    public function actionCreate2()
+    {
+        $universitys = Universitys::find()->all();
+        $row = Universitys::find()->where(['active'=>10])->asArray()->all();
+
+        if (isset($_POST['test'])){
+            var_dump($_POST['test']);die();
+        }
+        return $this->render('forms/_select2', [
+            'universitys' => $universitys,
+            'row' => $row,
+        ]);
+    }
+    //--------
 
     /**
      * Creates a new Rop model.

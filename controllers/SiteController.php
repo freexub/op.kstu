@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 
+use app\models\UserProfile;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -79,6 +80,8 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
+        $profile = new UserProfile();
+        $signUp = new Signup();
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -87,6 +90,8 @@ class SiteController extends Controller
         $model->password = '';
         return $this->render('login', [
             'model' => $model,
+            'profile' => $profile,
+            'signUp' => $signUp,
         ]);
     }
 
@@ -105,23 +110,19 @@ class SiteController extends Controller
     public function actionSignup()
     {
         $model = new Signup();
-		//$personal = new Personal();
-		//$lvl = Levels::find()->where(['type_id'=>2])->all();
-		#var_dump($_POST);die();
-
+		$profile = new UserProfile();
         if ($model->load(Yii::$app->getRequest()->post())) {
-           # $model->person_id = (int)$personal->id;
-            #$model->save();
-            #$model->save();
-            #$model->id;
-
             if ($user = $model->signup()) {
-                #var_dump($user->id);die();
-                    return $this->goHome();
+                if ($profile->load(Yii::$app->getRequest()->post())) {
+                    $profile->user_id = $user->id;
+                    $profile->save();
                 }
+                return $this->goHome();
+            }
         }
-        return $this->render('signup', [
+        return $this->render('login', [
             'model' => $model,
+            'profile' => $profile,
         ]);
 
     }

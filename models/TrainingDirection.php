@@ -43,9 +43,9 @@ class TrainingDirection extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'ea_id' => 'Pt ID',
+            'ea_id' => 'области образования',
             'code' => 'Code',
-            'name' => 'Name',
+            'name' => 'Направления подготовки',
         ];
     }
 
@@ -57,6 +57,10 @@ class TrainingDirection extends \yii\db\ActiveRecord
     public function getPt()
     {
         return $this->hasOne(ProfessionType::className(), ['id' => 'ea_id']);
+    }
+    public function getEduArea()
+    {
+        return $this->hasOne(EduArea::className(), ['id' => 'ea_id']);
     }
 
     public function getCodeName(){

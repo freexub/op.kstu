@@ -46,7 +46,7 @@ class GroupEduProgram extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'td_id' => Yii::t('app', 'Td ID'),
+            'td_id' => Yii::t('app', 'Направление подготовки'),
             'name' => Yii::t('app', 'Name'),
             'code' => Yii::t('app', 'Code'),
             'active' => Yii::t('app', 'Active'),

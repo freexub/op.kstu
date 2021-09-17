@@ -40,23 +40,23 @@ AppAsset::register($this);
         'items' => [
 
             ['label' => 'Expert', 'visible' => Yii::$app->user->can('expertAccess'), 'url' => ['expert/programs/index']],
-//            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Панель управления', 'visible' => Yii::$app->user->can('admin'), 'url' => ['/admin/']],
 //            ['label' => 'About', 'url' => ['/site/about']],
 //            ['label' => 'Contact', 'url' => ['/site/contact']],
-            [
-                'label' => 'Управление',
-                'visible' => Yii::$app->user->can('admin'),
-                #'url' => ['/data/'],
-                'items' => [
-                    ['label' => 'ОП', 'url' => ['rop/index']],
-                    ['label' => 'Университеты', 'url' => ['universitys/index']],
-                    ['label' => 'Expert', 'url' => ['expert/index']],
-//                    ['label' => '-', 'options'=>['class'=>'divider']],
-//                    ['label' => 'Подразделения', 'url' => ['levels/index']],
-//                    ['label' => 'Должности', 'url' => ['position/index']],
-                    #['label' => '-', 'options'=>['class'=>'divider']],
-                ]
-            ],
+//            [
+//                'label' => 'Управление',
+//                'visible' => Yii::$app->user->can('admin'),
+//                #'url' => ['/data/'],
+//                'items' => [
+//                    ['label' => 'ОП', 'url' => ['rop/index']],
+//                    ['label' => 'Университеты', 'url' => ['universitys/index']],
+//                    ['label' => 'Expert', 'url' => ['expert/index']],
+////                    ['label' => '-', 'options'=>['class'=>'divider']],
+////                    ['label' => 'Подразделения', 'url' => ['levels/index']],
+////                    ['label' => 'Должности', 'url' => ['position/index']],
+//                    #['label' => '-', 'options'=>['class'=>'divider']],
+//                ]
+//            ],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

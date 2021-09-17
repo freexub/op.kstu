@@ -138,7 +138,8 @@ class ProgramsController extends \yii\web\Controller
             'autor'=>$autor,
             'lr_id'=>$id
         ]);
-        if (count($model) > 0){
+//        if (count($model) > 0){
+        if (isset($model->id)){
             if ($model->load(Yii::$app->request->post(), '')){
                 if ($model->save())
                     return $this->redirect(Yii::$app->request->referrer);

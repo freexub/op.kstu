@@ -61,7 +61,9 @@ class RopExperts extends \yii\db\ActiveRecord
         $names = $this->experts->username;
         $query = RopExperts::findOne(['turn'=>$id]);
 
-        if (count($query) > 0){
+//        var_dump($query);die();
+
+        if (isset($query->id)){
 //            $expert = RopExperts::findOne(['id'=>]);
             $names = $names . ', ' . $this->User($query->user_id)->username;
         }

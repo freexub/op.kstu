@@ -8,10 +8,6 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log',
-//        'languagepicker',
-//        [
-//            'class' => 'app\components\LanguageSelector'
-//        ],
     ],
     'language'=> 'ru-RU',
     'aliases' => [
@@ -52,7 +48,6 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'HA3fr9L4W0J1gI3yeCVc4m0fvXwu8QAe',
-//            'class' => \skeeks\yii2\multiLanguage\MultiLangRequest::class,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -81,9 +76,8 @@ $config = [
             ],
         ],
         'db' => $db,
-        /**/
+
         'urlManager' => [
-//            "class" => \skeeks\yii2\multiLanguage\MultiLangUrlManager::class,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
@@ -101,6 +95,7 @@ $config = [
     'modules' => [
         'expert' => [
             'class' => 'app\modules\expert\Module',
+            'layout' => 'main'
         ],
         'admin' => [
             'class' => 'app\modules\admin\Module',
@@ -119,15 +114,13 @@ $config = [
             'layout' => 'left-menu',
             'mainLayout' => '@app/views/layouts/main.php',
         ],
-        'expert' => [
-            'class' => 'app\modules\expert\Module',
-//            'layout' => 'main'
-        ],
     ],
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
+//            'gii/*',
+//            'rbac/*',
         ]
     ],
     'params' => $params,

@@ -3,45 +3,136 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\LoginForm */
+/* @var $profile \app\models\UserProfile */
+/* @var $signUp \app\models\Signup */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+$this->registerCssFile("@web/css/signUp.css",
+    ['rel' => 'stylesheet',
+        'depends'=> ['app\assets\AppAsset']],
+    'mystyle');
+
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to login:</p>
-
-    <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
-        'layout' => 'horizontal',
-        'fieldConfig' => [
-            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            'labelOptions' => ['class' => 'col-lg-1 control-label'],
-        ],
-    ]); ?>
-
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-        <?= $form->field($model, 'password')->passwordInput() ?>
-
-        <?= $form->field($model, 'rememberMe')->checkbox([
-            'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-        ]) ?>
-
-        <div class="form-group">
-            <div class="col-lg-offset-1 col-lg-11">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+<div class="container">
+    <div class="login-signup">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 nav-tab-holder">
+                <ul class="nav nav-tabs row" role="tablist">
+                    <li role="presentation" class="active col-sm-6"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Login</a></li>
+                    <li role="presentation" class="col-sm-6"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Create User Account</a></li>
+                </ul>
             </div>
+            <div class="col-sm-3"></div>
+
         </div>
 
-    <?php ActiveForm::end(); ?>
 
-    <div class="col-lg-offset-1" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <article role="login">
+                            <h3 class="text-center"><i class="fa fa-lock"></i>Login</h3>
+                            <?php $form = ActiveForm::begin([
+                                'id' => 'login-form',
+                                'action' => 'login'
+                            ]); ?>
+
+                            <?= $form->field($model, 'username')->textInput(['placeholder'=>'Введите Ваш логин', 'autofocus' => true])->label(false) ?>
+
+                            <?= $form->field($model, 'password')->passwordInput(['placeholder'=>'Введите Ваш пароль'])->label(false) ?>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Please accept the terms and conditions to proceed with your request.
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <?= Html::submitButton('Login', ['class' => 'btn btn-success btn-block', 'name' => 'login-button']) ?>
+                            </div>
+                            <?php ActiveForm::end(); ?>
+
+                            <footer role="signup" class="text-center">
+                                <ul>
+                                    <li>
+                                        <a href="#">Terms of Use</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Privacy Statement</a>
+                                    </li>
+                                </ul>
+                            </footer>
+
+                        </article>
+                    </div>
+                    <div class="col-sm-3"></div>
+
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of home -->
+
+            <div role="tabpanel" class="tab-pane" id="profile">
+                <div class="row">
+
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <article role="login">
+                            <h3 class="text-center"><i class="fa fa-lock"></i> Create User Account</h3>
+
+                            <?php $form = ActiveForm::begin([
+                                    'id' => 'form-signup',
+                                    'action' => 'signup'
+                            ]); ?>
+
+                            <?= $form->field($profile, 'sname')->textInput(['placeholder'=>'Введите вашу фамилию'])->label(false)?>
+
+                            <?= $form->field($profile, 'name')->textInput(['placeholder'=>'Введите ваше имя'])->label(false) ?>
+
+                            <?= $form->field($profile, 'pname')->textInput(['placeholder'=>'Введите ваше отчество'])->label(false) ?>
+
+                            <?= $form->field($signUp, 'email')->textInput(['placeholder'=>'Укажите Ваш e-mail'])->label(false) ?>
+
+                            <?= $form->field($signUp, 'username')->textInput(['placeholder'=>'Придумайте логин'])->label(false) ?>
+
+                            <?= $form->field($signUp, 'password')->passwordInput(['placeholder'=>'Придумайте пароль'])->label(false) ?>
+
+                            <?= $form->field($signUp, 'retypePassword')->passwordInput(['placeholder'=>'Подтвердить пароль'])->label(false) ?>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Please accept the terms and conditions to proceed with your request.
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <?= Html::submitButton('Регистрация', ['class' => 'btn btn-success btn-block', 'name' => 'signup-button']) ?>
+                            </div>
+
+                            <?php ActiveForm::end(); ?>
+                            <footer role="signup" class="text-center">
+                                <ul>
+                                    <li>
+                                        <a href="#">Terms of Use</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Privacy Statement</a>
+                                    </li>
+                                </ul>
+                            </footer>
+                        </article>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -27,6 +27,7 @@ use Yii;
  * @property int $dateCreate Дата регистрации в Реестре
  * @property int $dateUpdate Дата обновления паспорта ОП
  * @property int $statusId Статус
+ * @property int $top ТОП 100
  * @property int $active Удаление
  *
  * @property Universitys $university
@@ -48,7 +49,7 @@ class Rop extends \yii\db\ActiveRecord
     {
         return [
             [['universityId', 'eduArea', 'trainingDirections', 'groupEduProgram', 'eduProgramName', 'eduGoalName', 'eduGoalName', 'levelNrk','academicDegree',  'levelOrk', 'creditsCount', 'trainingPeriod'], 'required'],
-            [['universityId', 'eduArea', 'trainingDirections', 'groupEduProgram', 'eduType', 'levelNrk', 'levelOrk', 'distinctType', 'universityPartner', 'creditsCount', 'trainingPeriod', 'licenseNumber', 'dateCreate', 'dateUpdate', 'statusId', 'active'], 'integer'],
+            [['universityId', 'top', 'eduArea', 'trainingDirections', 'groupEduProgram', 'eduType', 'levelNrk', 'levelOrk', 'distinctType', 'universityPartner', 'creditsCount', 'trainingPeriod', 'licenseNumber', 'dateCreate', 'dateUpdate', 'statusId', 'active'], 'integer'],
             [['eduGoalName', 'academicDegree'], 'string', 'max' => 500],
             [['regNumber'], 'string', 'max' => 10],
             [['eduProgramName'], 'string', 'max' => 200],
@@ -83,6 +84,7 @@ class Rop extends \yii\db\ActiveRecord
             'dateCreate' => 'Дата регистрации в Реестре',
             'dateUpdate' => 'Дата обновления паспорта ОП',
             'statusId' => 'Статус',
+            'top' => 'Топ 100',
             'active' => 'Удаление',
         ];
     }

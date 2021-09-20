@@ -1,12 +1,13 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\controllers;
 
 use app\models\Competencies;
 use app\models\EduArea;
 use app\models\GroupEduProgram;
 use app\models\LearningResult;
 use app\models\RopExperts;
+use app\models\TopSearch;
 use app\models\TrainingDirection;
 use app\models\User;
 use Yii;
@@ -23,7 +24,7 @@ use yii\helpers\ArrayHelper;
 /**
  * RopController implements the CRUD actions for Rop model.
  */
-class RopController extends Controller
+class ProgramsController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -76,12 +77,7 @@ class RopController extends Controller
 
     public function actionView($id)
     {
-        $competencies = Competencies::find()
-            ->where([
-                'rop_id'=>$id
-            ])
-            ->orderBy('id DESC')
-            ->all();
+        $competencies = Competencies::find()->where(['rop_id'=>$id])->orderBy('id DESC')->all();
         $activeTab = 0;
         if (isset($_GET['tab'])){
             $activeTab = (int)$_GET['tab'];
@@ -89,7 +85,7 @@ class RopController extends Controller
         switch ($activeTab) {
             case 0:
                 $contentTab = 'tabs/passport';
-				$dataProviders ='';
+				$dataProviders='';
                 break;
             case 1:
                 $contentTab = 'tabs/competencies';
@@ -98,11 +94,7 @@ class RopController extends Controller
             case 2:
                 $contentTab = 'tabs/experts';
                 $dataProviders = new ActiveDataProvider([
-                    'query' => RopExperts::find()
-                        ->where([
-                            'rop_id'=>$id,
-                            'turn'=>0
-                        ]),
+                    'query' => RopExperts::find()->where(['rop_id'=>$id, 'turn'=>0]),
                     'sort' => false
                 ]);
                 break;
@@ -206,7 +198,6 @@ class RopController extends Controller
         $model = new Competencies();
         if ($model->load(Yii::$app->request->post())){
             $model->rop_id = $id;
-            $model->autor = YII::$app->user->id;
             if ($model->save()){
                 return $this->redirect(Yii::$app->request->referrer);
             }
@@ -225,8 +216,7 @@ class RopController extends Controller
         $model = LearningResult::findOne($id);
 
 //        var_dump($model->status);die();
-        $model->status == 0 ? $model->status = 1 : $model->status = 0;
-
+        $model->status = 1;
         if ($model->save())
             return $this->redirect(Yii::$app->request->referrer);
         else
@@ -244,7 +234,6 @@ class RopController extends Controller
         ]);
         if ($model->load(Yii::$app->request->post())){
             $model->competencies_id = $id;
-            $model->autor = YII::$app->user->id;
             if ($model->save()){
 //                return $this->redirect(['view', 'id' => $rop_id]);
                 return $this->redirect(Yii::$app->request->referrer);
@@ -312,6 +301,39 @@ class RopController extends Controller
         return $array;
     }
 
+    public function actionTop(){
+//        $model = Rop::findAll(['active'=>0, 'top'=>1]);
+
+        $searchModel = new TopSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $model = new Rop();
+        $universitys = Universitys::find()->all();
+        $eduArea1 = EduArea::find()->all();
+        $eduArea = $this->CodeName($eduArea1);
+
+        $trainingDirection1 = TrainingDirection::find()->all();
+        $trainingDirection = $this->CodeName($trainingDirection1);
+
+        $groupEduProgram = GroupEduProgram::find()->all();
+
+//        if ($model->load(Yii::$app->request->post()) ) {
+//
+////            return $this->redirect(['view', 'id' => $model->id]);
+//        }
+
+        return $this->render('top', [
+            'model' => $model,
+            'universitys' => $universitys,
+            'eduArea' => $eduArea,
+            'trainingDirection' => $trainingDirection,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
+
     public function actionGetTrainingDirection(){
         if ($_POST['id'])
             $id = $_POST['id'];
@@ -356,6 +378,14 @@ class RopController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $universitys = Universitys::find()->all();
+        $eduArea1 = EduArea::find()->all();
+        $eduArea = $this->CodeName($eduArea1);
+		
+        $trainingDirection1 = TrainingDirection::find()->all();
+        $trainingDirection = $this->CodeName($trainingDirection1);
+
+        $groupEduProgram = GroupEduProgram::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -363,6 +393,9 @@ class RopController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'universitys' => $universitys,
+            'eduArea' => $eduArea,
+            'trainingDirection' => $trainingDirection,
         ]);
     }
 

@@ -68,7 +68,6 @@ use yii\bootstrap\Tabs;
         echo GridView::widget([
             'dataProvider' => $dataProviders[$competence->id],
     //        'filterModel' => $searchModel,
-            'showHeader'=> false,
             'summary' => false,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],

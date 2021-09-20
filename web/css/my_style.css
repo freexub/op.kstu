@@ -1,0 +1,14 @@
+.grow:hover{
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.02);
+}
+
+.btn-lg{	
+    margin-top: 5px;
+}
+
+.h1-block{
+	text-align: center;
+	margin-top: 54px
+}

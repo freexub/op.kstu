@@ -102,6 +102,7 @@ class ProgramsController extends \yii\web\Controller
         ]);
         if ($model->load(Yii::$app->request->post())){
             $model->competencies_id = $id;
+            $model->autor = Yii::$app->user->id;
             if ($model->save()){
 //                return $this->redirect(['view', 'id' => $rop_id]);
                 return $this->redirect(Yii::$app->request->referrer);

@@ -67,6 +67,7 @@ use yii\bootstrap\Tabs;
         echo "";
         echo GridView::widget([
             'dataProvider' => $dataProviders[$competence->id],
+            'showHeader'=> false,
     //        'filterModel' => $searchModel,
             'summary' => false,
             'columns' => [
@@ -98,7 +99,7 @@ use yii\bootstrap\Tabs;
                                 'vote' => 1
                             ],
                             [
-                                "class"=> "btn btn-info btn-lg glyphicon glyphicon-thumbs-up",
+                                "class"=> "btn btn-info glyphicon glyphicon-thumbs-up",
                                 'data' => [
                                     'method' => 'post',
                                     'params' => [
@@ -122,7 +123,7 @@ use yii\bootstrap\Tabs;
                                 'vote' => 0
                             ],
                             [
-                                "class"=> "btn btn-warning btn-lg glyphicon glyphicon-thumbs-down",
+                                "class"=> "btn btn-warning glyphicon glyphicon-thumbs-down",
                                 'data' => [
                                     'method' => 'post',
                                     'params' => [

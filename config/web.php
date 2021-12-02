@@ -93,6 +93,10 @@ $config = [
 
     ],
     'modules' => [
+        'profile' => [
+            'class' => 'app\modules\profile\Module',
+            'layout' => 'main'
+        ],
         'expert' => [
             'class' => 'app\modules\expert\Module',
             'layout' => 'main'

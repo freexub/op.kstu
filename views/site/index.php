@@ -25,7 +25,7 @@ $this->title = 'My Yii Application';
 						</div>				
 						<div class="col-lg-6">
 							<a class="btn btn-lg btn-info mr-2" href="programs/top/">Топ-программ</a>
-							<a class="btn btn-lg btn-default mr-2" href="#">Мобильность</a>
+							<a class="btn btn-lg btn-info mr-2" href="mobility/">Мобильность</a>
 							<a class="btn btn-lg btn-default mr-2" href="#">Партнерство в образовательных проектах</a>
 							<a class="btn btn-lg btn-default mr-2" href="#">Экспертиза компетенций:международная база по отраслям</a>
 						</div>

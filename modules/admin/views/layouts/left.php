@@ -30,22 +30,34 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    [
-                        'label' => 'Справочники',
-                        'icon' => 'book',
-                        'badge' => '',
-                        'items' => [
-                            ['label' => 'Университеты', 'url' => ['universitys/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
-                            ['label' => 'Области образования', 'url' => ['edu-area/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
-                            ['label' => 'Направления подготовки', 'url' => ['training-direction/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
-                            ['label' => 'Группы ОП', 'url' => ['group-edu-program/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
-                            ['label' => 'Все ОП', 'url' => ['rop/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
-                        ]
-                    ],
+                    ['label' => 'Все ОП','icon' => 'folder', 'url' => ['rop/index']],
+                    ['label' => 'Мобильность',  'icon' => 'paper-plane', 'url' => ['mobility/index']],
                     ['label' => 'Пользователи', 'icon' => 'users', 'badge' => '',
                         'items' => [
                             ['label' => 'Эксперты',  'iconStyle' => 'far', 'url' => ['experts/index'], 'target' => '_blank', 'iconClassAdded' => 'text-info'],
                             ['label' => 'Все пользователи',  'iconStyle' => 'far', 'url' => ['user/index'], 'target' => '_blank', 'iconClassAdded' => 'text-info'],
+                        ]
+                    ],
+                    ['label' => 'Справочники', 'options' => ['class' => 'header']],
+                    [
+                        'label' => 'ОП',
+                        'icon' => 'book',
+                        'badge' => '',
+                        'items' => [
+//                            ['label' => '', 'options' => ['class' => 'header', 'style'=>'color: #ffffff; background: #2c3b41;']],
+                            ['label' => 'Университеты', 'url' => ['universitys/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
+                            ['label' => 'Области образования', 'url' => ['edu-area/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
+                            ['label' => 'Направления подготовки', 'url' => ['training-direction/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
+                            ['label' => 'Группы ОП', 'url' => ['group-edu-program/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
+                        ]
+                    ],
+                    [
+                        'label' => 'Мобильность',
+                        'icon' => 'book',
+                        'badge' => '',
+                        'items' => [
+                            ['label' => 'Специальности по странам', 'url' => ['mobility-spec/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
+                            ['label' => 'Реестр МОП', 'url' => ['mobility-mop/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
                         ]
                     ],
                     ['label' => 'Приложения', 'options' => ['class' => 'header']],
